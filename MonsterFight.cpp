@@ -11,6 +11,7 @@
 #include "ASCII_art.h"
 #include "Cat.h"
 #include "Crow.h"
+#include <memory>
 
 int main()
 {
