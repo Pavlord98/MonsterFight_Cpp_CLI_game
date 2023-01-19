@@ -14,7 +14,7 @@
 
 int main()
 {
-	
+	std::cout << "I made this line on my laptop";
 	std::cout << "This is the new feature"; // yup, just this line
 	// initialize and great player
 	Player player{ getPlayerName() };
