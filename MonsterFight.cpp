@@ -16,7 +16,7 @@
 int main()
 {
 	// initialize and great player
-	Player player{ getPlayerName() };
+	Player player{ createPlayer() };
 
 	// aks user to choose a pet to accompany them
 	std::unique_ptr<Pet> pet {createPet()};

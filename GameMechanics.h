@@ -32,7 +32,7 @@ Monster spawnMonster()
 }
 
 
-std::string getPlayerName()
+std::string createPlayer()
 {
 	art::welcomePlayer();
 	art::drawLines();
