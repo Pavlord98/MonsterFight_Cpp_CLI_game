@@ -16,9 +16,9 @@ public:
 		player.healPlayer(1);
 		std::cout << "Your cat " << m_name << " healed you for 1 health. \n";
 		std::cout << "Current health is: " << player.getHealth() << '\n';
-		drawHeart();
-		drawCat();
-		drawLines();
+		art::drawHeart();
+		art::drawCat();
+		art::drawLines();
 	}
 
 	Cat(std::string name)

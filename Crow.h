@@ -14,8 +14,8 @@ public:
 	{
 		player.addGold(5);
 		std::cout << "Your pet crow " << m_name << " found some gold and brought it to you. \n";
-		drawCrow();
-		drawLines();
+		art::drawCrow();
+		art::drawLines();
 	}
 	Crow(std::string name)
 		: Pet{ name }

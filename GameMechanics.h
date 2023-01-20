@@ -25,22 +25,22 @@ Monster spawnMonster()
 {
 	Monster monster{ Monster::getRandomMonster() };
 	std::cout << "You have encoutered a " << monster.getName() << "!\n";
-	drawMonster(monster);
+	art::drawMonster(monster);
 	return monster;
 }
 
 
 std::string getPlayerName()
 {
-	welcomePlayer();
-	drawLines();
+	art::welcomePlayer();
+	art::drawLines();
 
 	std::cout << "Enter your name : ";
 	std::string name;
 	std::cin >> name;
 	
 
-	drawLines();
+	art::drawLines();
 
 	return name;
 }
@@ -48,8 +48,8 @@ std::string getPlayerName()
 
 void congratulatePlayer(Player player)
 {
-	drawLines();
-	drawFireworks();
+	art::drawLines();
+	art::drawFireworks();
 	std::cout << "Congratulations " << player.getName() << "!\n";
 }
 
@@ -69,4 +69,45 @@ void reportToPlayer(Player& player)
 	waitForInput();
 }
 
+void battle(Player& player, Monster& monster)
+{
+	std::cout << "Do you want to fight this monster or run away? \n";
+		std::cout << "Input 'F' for fight and 'R' for Run : \n";
+		char decision{};
+		std::cin >> decision;
+		art::drawLines();
 
+		if (decision == 'R' || decision == 'r') {
+
+			
+			std::cout << "You decided to run. \n";
+			
+			if (getRandomNumber(0, 1) == 0) {
+				attackPlayer(player, monster); // reduces the player's health
+				std::cout << "You got hit by the monster while running away. \n";
+			}
+			else {
+				std::cout << "You managed to get away scar-free. \n";
+			}
+		}
+
+		else if (decision == 'F' || decision == 'f')
+		{
+			std::cout << "You decided to fight. \n";
+
+			// The player attacks first
+			attackMonster(player, monster);
+			// If the monster's not dead, the monster attacks back
+			if (!monster.isDead()) { attackPlayer(player,monster); }
+
+			std::cout << "The monster ran away \n";
+
+			player.addGold(monster.getGold());
+
+			std::cout << "You leveled up! \n";
+			player.levelUp();
+		}
+		else {
+			std::cout << "Invalid selection! \n";
+		};
+}

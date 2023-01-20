@@ -13,8 +13,8 @@ public:
 	{
 		player.buffPlayerDamage(1);
 		std::cout << "Your dog " << m_name << " incerased your damage by 1. \n";
-		drawDog();
-		drawLines();
+		art::drawDog();
+		art::drawLines();
 	}
 
 	Dog(std::string name)

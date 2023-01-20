@@ -15,8 +15,6 @@
 
 int main()
 {
-	std::cout << "I made this line on my laptop";
-	std::cout << "This is the new feature"; // yup, just this line
 	// initialize and great player
 	Player player{ getPlayerName() };
 
@@ -44,7 +42,7 @@ int main()
 	// If the player isn't dead and hasn't won yet, the game continues
 	while (!player.isDead() && !player.hasWon())
 	{
-		drawLines();
+		art::drawLines();
 		std::cout << "Starting round number: " << roundCounter++ << '\n';
 
 		pet->specialEffect(player);
@@ -53,46 +51,7 @@ int main()
 		Monster monster{ spawnMonster() };
 
 		// Ask the player what to do
-		std::cout << "Do you want to fight this monster or run away? \n";
-		std::cout << "Input 'F' for fight and 'R' for Run : \n";
-		char decision{};
-		std::cin >> decision;
-		drawLines();
-
-		if (decision == 'R' || decision == 'r') {
-
-			
-			std::cout << "You decided to run. \n";
-			
-			if (getRandomNumber(0, 1) == 0) {
-				attackPlayer(player, monster); // reduces the player's health
-				std::cout << "You got hit by the monster while running away. \n";
-			}
-			else {
-				std::cout << "You managed to get away scar-free. \n";
-			}
-		}
-
-		else if (decision == 'F' || decision == 'f')
-		{
-			std::cout << "You decided to fight. \n";
-
-			// The player attacks first
-			attackMonster(player, monster);
-			// If the monster's not dead, the monster attacks back
-			if (!monster.isDead()) { attackPlayer(player,monster); }
-
-			std::cout << "The monster ran away \n";
-
-			player.addGold(monster.getGold());
-
-			std::cout << "You leveled up! \n";
-			player.levelUp();
-		}
-
-		else {
-			std::cout << "Invalid selection! \n";
-		};
+		battle(player, monster);
 
 		// Inform the player of their health and level
 		reportToPlayer(player);
@@ -101,14 +60,15 @@ int main()
 
 	if (player.hasWon())
 	{
+		art::drawLines();
 		congratulatePlayer(player);
 		waitForInput();
 	}
 	else
 	{
-		drawLines();
+		art::drawLines();
 		std::cout << "You died! Better luck next time.";
-		drawGameOverArt();
+		art::drawGameOverArt();
 		waitForInput();
 	}
 
