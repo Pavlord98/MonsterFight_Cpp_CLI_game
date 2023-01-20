@@ -1,24 +1,14 @@
-// MonsterFight.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
 #include <iostream>
-#include <string>
 
-#include "Creature.h"
-#include "Player.h"
-#include "Monster.h"
 #include "GameMechanics.h"
-#include "ASCII_art.h"
-#include "Cat.h"
-#include "Crow.h"
-#include <memory>
 
 int main()
 {
-	// initialize and great player
+	// initialize and great the player
 	Player player{ createPlayer() };
 
-	// aks user to choose a pet to accompany them
+	// create a pet of the player's choosing
 	std::unique_ptr<Pet> pet {createPet()};
 
 	// create a round counter
@@ -27,35 +17,28 @@ int main()
 	// If the player isn't dead and hasn't won yet, the game continues
 	while (!player.isDead() && !player.hasWon())
 	{
-		art::drawLines();
+		// Indicate start of a new round
 		std::cout << "Starting round number: " << roundCounter++ << '\n';
 
+		// Activate the pet's signature abillity
 		pet->specialEffect(player);
+		
+		// Wait for player to respond
 		waitForInput();
 
+		// A monster is created (a new one for each round)
 		Monster monster{ spawnMonster() };
 
-		// Ask the player what to do
+		// Player ecnounters a monster
 		battle(player, monster);
 
-		// Inform the player of their health and level
+		// Inform the player of their health, level and gold
 		reportToPlayer(player);
 
 	}
 
-	if (player.hasWon())
-	{
-		art::drawLines();
-		congratulatePlayer(player);
-		waitForInput();
-	}
-	else
-	{
-		art::drawLines();
-		std::cout << "You died! Better luck next time.";
-		art::drawGameOverArt();
-		waitForInput();
-	}
+	// show appropriate end Game message
+	endGameScreen(player);
 
 	return 0;
 }

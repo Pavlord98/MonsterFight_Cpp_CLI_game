@@ -2,7 +2,6 @@
 
 #include "Pet.h"
 #include "Player.h"
-#include "ASCII_art.h"
 
 class Crow : public Pet
 {

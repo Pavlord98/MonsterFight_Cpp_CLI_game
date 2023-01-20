@@ -1,8 +1,8 @@
-#pragma once
+#ifndef GAMEMECHANICS_H
+#define GAMEMECHANICS_H
 
 #include "Monster.h"
 #include "Player.h"
-#include "Pet.h"
 #include "Cat.h"
 #include "Dog.h"
 #include "Crow.h"
@@ -67,6 +67,7 @@ void reportToPlayer(Player& player)
 {
 	std::cout << "You currently have " << player.getHealth() << " health, and are at level " << player.getLevel() << '\n';
 	std::cout << "You have: " << player.getGold() << " gold.\n";
+	art::drawLines();
 	
 	waitForInput();
 }
@@ -135,3 +136,22 @@ std::unique_ptr<Pet> createPet()
 
 	return pet;
 }
+
+void endGameScreen(Player& player)
+{
+if (player.hasWon())
+	{
+		art::drawLines();
+		congratulatePlayer(player);
+		waitForInput();
+	}
+	else
+	{
+		art::drawLines();
+		std::cout << "You died! Better luck next time.";
+		art::drawGameOverArt();
+		waitForInput();
+	}
+}
+
+#endif
