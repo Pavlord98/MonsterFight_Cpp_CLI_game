@@ -5,7 +5,9 @@
 #include "Pet.h"
 #include "Cat.h"
 #include "Dog.h"
+#include "Crow.h"
 #include "ASCII_art.h"
+#include <memory>
 
 void attackMonster(Player& player, Monster& monster)
 {
@@ -110,4 +112,26 @@ void battle(Player& player, Monster& monster)
 		else {
 			std::cout << "Invalid selection! \n";
 		};
+}
+
+std::unique_ptr<Pet> createPet()
+{
+	std::cout << "Choose a pet. (cat,dog or crow): ";
+	std::string decision;
+	std::cin >> decision;
+
+	std::cout << "Chose a name for your pet: ";
+	std::string petName;
+	std::cin >> petName;
+
+	// initialize a corresponding class
+	std::unique_ptr<Pet> pet;
+	if (decision == "cat")
+		pet.reset(new Cat(petName));
+	else if (decision == "dog")
+		pet.reset(new Dog(petName));
+	else
+		pet.reset(new Crow(petName));
+
+	return pet;
 }
