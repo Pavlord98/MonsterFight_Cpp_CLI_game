@@ -1,8 +1,11 @@
 ﻿#ifndef ASCII_ART_H
 #define ASCII_ART_H
+
 #include "Monster.h"
 
-void welcomePlayer()
+namespace art
+{
+  void welcomePlayer()
 {
 	std::cout << R"(
  __          __  _                          
@@ -14,7 +17,7 @@ void welcomePlayer()
                                            )";
 }
 
-void drawLines()
+  void drawLines()
 {
     std::cout << R"(
 --------------------------------------------------------------
@@ -23,7 +26,7 @@ void drawLines()
 )";
 }
 
-void drawCat()
+  void drawCat()
 {
     std::cout << R"(
     /\_____/\
@@ -37,7 +40,7 @@ void drawCat()
 )";
 }
 
-void drawDragon()
+  void drawDragon()
 {
     std::cout << R"(
  <>=======() 
@@ -59,7 +62,7 @@ void drawDragon()
 )";
 }
 
-void drawOrc()
+  void drawOrc()
 {
     std::cout << R"(
                             __,='`````'=/__
@@ -85,7 +88,7 @@ void drawOrc()
 )";
 }
 
-void drawSlime()
+  void drawSlime()
 {
     std::cout << R"(
                  ██████████                
@@ -110,7 +113,7 @@ void drawSlime()
 )";
 }
 
-void drawMonster(Monster& monster)
+  void drawMonster(Monster& monster)
 {
     if (monster.getName() == "dragon")
     {
@@ -126,7 +129,7 @@ void drawMonster(Monster& monster)
     }
 }
 
-void drawHeart()
+  void drawHeart()
 {
     std::cout << R"(
   ,d88b.d88b,
@@ -138,7 +141,7 @@ void drawHeart()
 )";
 }
 
-void drawFireworks()
+  void drawFireworks()
 {
     std::cout << R"(
            .* *.               `o`o`
@@ -156,7 +159,7 @@ _____________\________\___\____|_/______/_________|\/\___||______
 )";
 }
 
-void drawGameOverArt()
+  void drawGameOverArt()
 {
     std::cout << R"(
  _____                        _____                
@@ -170,7 +173,7 @@ void drawGameOverArt()
 )";
 }
 
-void drawDog()
+  void drawDog()
 {
     std::cout << R"(
  _   _
@@ -182,7 +185,7 @@ void drawDog()
 )";
 }
 
-void drawCrow()
+  void drawCrow()
 {
     std::cout << R"(
      
@@ -205,5 +208,7 @@ void drawCrow()
                 ██████████████  
 )";
 }
+}
+
 
 #endif
