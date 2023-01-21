@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include "ASCII_art.h"
 
 const std::string currentDateTime() 
 {
@@ -16,7 +17,8 @@ const std::string currentDateTime()
 
 void printScoreboard()
 {
-	std::ifstream scr{"ScoreLog.txt"};
+	// reading in the scores
+    std::ifstream scr{"ScoreLog.txt"};
 
 	if (!scr)
     {
@@ -25,7 +27,7 @@ void printScoreboard()
         return ;
     }
 
-	
+	// creating a struct to hold an entire entry
     struct scoreEntry
 	{
 		std::string name;
@@ -34,30 +36,30 @@ void printScoreboard()
 		std::string date;
 	};
 
-	/*	
-	std::istream& operator>>(std::istream& is, scoreEntry& s)
-	{
-    	return scr >> s.name >> s.gold >> s.w >> s.date;	
-	}
-	*/
-
+    // creating a vector to store entries
 	std::vector<scoreEntry> scoreEntries;
 	scoreEntry s;
+
+    // reading in the enrties
 	while (scr)
 	{
 		scr >> s.name >> s.gold >> s.w >> s.date;
 		scoreEntries.push_back(s);
 	}
 
+    // sorting entries based on gold obtained
 	std::sort(scoreEntries.begin(),
 			  scoreEntries.end(),
 			  [](const scoreEntry& s1, const scoreEntry& s2) {return s1.gold > s2.gold;});
 	
+    
+    art::drawLines();
+    art::drawScoreboard();
+    int num {1};
+    // printing the sorted scoreboard to screen
 	for (const auto i: scoreEntries)
 	{
-		std::cout << "Player " << i.name << " obtained "<< i.gold << " Date and time: "<< i.date <<'\n';
+        std::cout << num++ << ". " <<"Player " << i.name << " obtained "<< i.gold << ";      Date and time: "<< i.date <<'\n';
+        if (num>10) {return;}
 	}
-    
-
-	
 }
