@@ -3,7 +3,7 @@ A simple console game inspired by RPGs and based on a learncpp.com/ assignments 
 
 Here's a gameplay screenshot:
 <p align="center">
-  <img src=https://github.com/Pavlord98/Simple-C-Console-Game/blob/main/GameplayScreenshot.png>
+  <img src=https://github.com/Pavlord98/MonsterFight_Cpp_CLI_game/blob/master/GameplayScreenshot.png>
 </p>
 
 ## Rules of the game
