@@ -9,6 +9,7 @@
 #include "ASCII_art.h"
 #include <memory>
 
+
 void attackMonster(Player& player, Monster& monster)
 {
 	// reduce the monsters health by the players damage ability
@@ -153,5 +154,7 @@ if (player.hasWon())
 		waitForInput();
 	}
 }
+
+
 
 #endif

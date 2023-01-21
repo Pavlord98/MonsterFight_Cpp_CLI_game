@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "GameMechanics.h"
+#include "Scoreboard.h"
 
 int main()
 {
@@ -34,11 +35,17 @@ int main()
 
 		// Inform the player of their health, level and gold
 		reportToPlayer(player);
-
+		
+		std::cout << currentDateTime();
+		
 	}
 
 	// show appropriate end Game message
 	endGameScreen(player);
+
+	player.writeScoreToFile(currentDateTime());	
+
+	printScoreboard();
 
 	return 0;
 }
