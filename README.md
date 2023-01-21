@@ -1,5 +1,5 @@
 # Simple C++ command line game
-A simple console game inspired by RPGs and based on a learncpp.com/ assignments with an addition of new gameplay elements such as pet companions and ASCII art visualization
+A simple console game inspired by RPGs and based on a learncpp.com/ assignments with an addition of new gameplay elements such as pet companions, a scoreboard and ASCII art visualization
 
 Here's a gameplay screenshot:
 <p align="center">
