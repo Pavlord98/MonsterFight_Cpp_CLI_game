@@ -1,6 +1,13 @@
 
 #include <iostream>
 
+#include "Creature.h"
+#include "Player.h"
+#include "Monster.h"
+#include "Cat.h"
+#include "Dog.h"
+#include "Crow.h"
+#include "ASCII_art.h"
 #include "GameMechanics.h"
 #include "Scoreboard.h"
 

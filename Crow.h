@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CROW_H
+#define CROW_H
 
 #include "Pet.h"
 #include "Player.h"
@@ -7,17 +8,11 @@ class Crow : public Pet
 {
 public:
 
-	virtual std::string speak()  { return "Caw!"; }
+	virtual std::string speak();
 
-	virtual void specialEffect(Player& player)
-	{
-		player.addGold(5);
-		std::cout << "Your pet crow " << m_name << " found some gold and brought it to you. \n";
-		art::drawCrow();
-		art::drawLines();
-	}
-	Crow(std::string name)
-		: Pet{ name }
-	{
-	}
+	virtual void specialEffect(Player& player);
+	
+	Crow(std::string name);
 };
+
+#endif
