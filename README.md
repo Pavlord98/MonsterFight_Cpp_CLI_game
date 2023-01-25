@@ -1,9 +1,9 @@
 # Simple C++ command line game
-A simple console game inspired by RPGs and based on a learncpp.com/ assignments with an addition of new gameplay elements such as pet companions and ASCII art visualization
+A simple console game inspired by RPGs and based on a learncpp.com/ assignments with an addition of new gameplay elements such as pet companions, a scoreboard and ASCII art visualization
 
 Here's a gameplay screenshot:
 <p align="center">
-  <img src=https://github.com/Pavlord98/Simple-C-Console-Game/blob/main/GameplayScreenshot.png>
+  <img src=https://github.com/Pavlord98/MonsterFight_Cpp_CLI_game/blob/master/GameplayScreenshot.png>
 </p>
 
 ## Rules of the game
